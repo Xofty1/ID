@@ -4,7 +4,7 @@ import BirthdayPage from './pages/BirthdayPage'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/birthday" element={<BirthdayPage />} />
