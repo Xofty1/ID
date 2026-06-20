@@ -3,7 +3,7 @@ import ReactConfetti from 'react-confetti'
 import { motion } from 'framer-motion'
 import { useWindowSize } from '../../hooks/useWindowSize'
 
-const BD_PHOTO = '/photos/bd.jpg'
+const BD_PHOTO = `${import.meta.env.BASE_URL}photos/bd.jpg`
 
 const NEON_LINES = ['#FF2D78', '#C0FF33', '#A855F7', '#22D3EE']
 

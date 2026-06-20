@@ -16,10 +16,12 @@ export interface AchievementGroup {
   blocks: Block[]
 }
 
+const base = import.meta.env.BASE_URL
+
 export const achievementGroups: AchievementGroup[] = [
   {
     id: 0,
-    photo: '/photos/1.jpg',
+    photo: `${base}photos/1.jpg`,
     label: 'Работа',
     blocks: [
       {
@@ -53,7 +55,7 @@ export const achievementGroups: AchievementGroup[] = [
   },
   {
     id: 1,
-    photo: '/photos/2.jpg',
+    photo: `${base}photos/2.jpg`,
     label: 'Учеба',
     blocks: [
       {
@@ -96,7 +98,7 @@ export const achievementGroups: AchievementGroup[] = [
   },
   {
     id: 2,
-    photo: '/photos/3.jpg',
+    photo: `${base}photos/3.jpg`,
     label: 'Вайб',
     blocks: [
       {
@@ -130,7 +132,7 @@ export const achievementGroups: AchievementGroup[] = [
   },
   {
     id: 3,
-    photo: '/photos/4.jpg',
+    photo: `${base}photos/4.jpg`,
     label: '🎂 День рождения',
     blocks: [
       {

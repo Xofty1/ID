@@ -24,8 +24,8 @@ export default function HeroVideo() {
         muted
         playsInline
       >
-        <source src="/video/hero.mp4" type="video/mp4" />
-        <source src="/video/hero.webm" type="video/webm" />
+        <source src={`${import.meta.env.BASE_URL}video/hero.mp4`} type="video/mp4" />
+        <source src={`${import.meta.env.BASE_URL}video/hero.webm`} type="video/webm" />
         {/* Falls back to gradient if no video file */}
       </video>
 
