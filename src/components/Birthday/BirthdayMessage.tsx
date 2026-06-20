@@ -208,7 +208,7 @@ export default function BirthdayMessage() {
             </motion.button>
 
             <motion.a
-              href="/ID/"
+              href="#/"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}

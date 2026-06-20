@@ -274,7 +274,7 @@ export default function HorizontalSlider() {
               нажми
             </p>
             <motion.a
-              href="/ID/birthday"
+              href="#/birthday"
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.94 }}
               className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#FF2D78] text-white font-display text-xs font-black tracking-widest uppercase glow-pink"
