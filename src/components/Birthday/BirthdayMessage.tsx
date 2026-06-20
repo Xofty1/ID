@@ -7,6 +7,7 @@ const BD_PHOTO = '/photos/bd.jpg'
 
 const NEON_LINES = ['#FF2D78', '#C0FF33', '#A855F7', '#22D3EE']
 
+
 function Reveal({ children, delay = 0, className = '' }: {
   children: React.ReactNode
   delay?: number
