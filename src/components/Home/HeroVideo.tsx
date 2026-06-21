@@ -1,5 +1,18 @@
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { FiChevronDown } from 'react-icons/fi'
+
+function AutoPlayVideo({ className, src }: { className: string; src: string }) {
+  const ref = useRef<HTMLVideoElement>(null)
+  useEffect(() => {
+    ref.current?.play().catch(() => {})
+  }, [])
+  return (
+    <video ref={ref} className={className} autoPlay loop muted playsInline preload="auto">
+      <source src={src} type="video/mp4" />
+    </video>
+  )
+}
 
 // ── Floating background orbs ───────────────────────────────────
 const ORBS = [
@@ -16,21 +29,14 @@ export default function HeroVideo() {
       {/* Base gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#1a0010] via-[#0B0B0C] to-[#00101a]" />
 
-      {/* Mobile video (portrait) — public/video/hero-mobile.mp4 */}
-      <video
+      <AutoPlayVideo
         className="absolute inset-0 w-full h-full object-cover opacity-40 md:hidden"
-        autoPlay loop muted playsInline
-      >
-        <source src={`${import.meta.env.BASE_URL}video/hero-mobile.mp4`} type="video/mp4" />
-      </video>
-
-      {/* Desktop video (landscape) — public/video/hero.mp4 */}
-      <video
+        src={`${import.meta.env.BASE_URL}video/hero-mobile.mp4`}
+      />
+      <AutoPlayVideo
         className="absolute inset-0 w-full h-full object-cover opacity-40 hidden md:block"
-        autoPlay loop muted playsInline
-      >
-        <source src={`${import.meta.env.BASE_URL}video/hero.mp4`} type="video/mp4" />
-      </video>
+        src={`${import.meta.env.BASE_URL}video/hero.mp4`}
+      />
 
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 hero-grid opacity-60" />
