@@ -16,17 +16,20 @@ export default function HeroVideo() {
       {/* Base gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#1a0010] via-[#0B0B0C] to-[#00101a]" />
 
-      {/* Hero video — place your file at public/video/hero.mp4 */}
+      {/* Mobile video (portrait) — public/video/hero-mobile.mp4 */}
       <video
-        className="absolute inset-0 w-full h-full object-cover opacity-40"
-        autoPlay
-        loop
-        muted
-        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-40 md:hidden"
+        autoPlay loop muted playsInline
+      >
+        <source src={`${import.meta.env.BASE_URL}video/hero-mobile.mp4`} type="video/mp4" />
+      </video>
+
+      {/* Desktop video (landscape) — public/video/hero.mp4 */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover opacity-40 hidden md:block"
+        autoPlay loop muted playsInline
       >
         <source src={`${import.meta.env.BASE_URL}video/hero.mp4`} type="video/mp4" />
-        <source src={`${import.meta.env.BASE_URL}video/hero.webm`} type="video/webm" />
-        {/* Falls back to gradient if no video file */}
       </video>
 
       {/* Subtle grid pattern */}
