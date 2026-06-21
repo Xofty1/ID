@@ -4,14 +4,16 @@ import { FiChevronDown } from 'react-icons/fi'
 
 function AutoPlayVideo({ className, src }: { className: string; src: string }) {
   const ref = useRef<HTMLVideoElement>(null)
-  useEffect(() => {
-    const v = ref.current
-    if (!v) return
-    v.load()
-    v.play().catch(() => {})
-  }, [])
+  const play = () => ref.current?.play().catch(() => {})
+  useEffect(() => { play() }, [])
   return (
-    <video ref={ref} className={className} autoPlay loop muted playsInline preload="auto">
+    <video
+      ref={ref}
+      className={className}
+      autoPlay loop muted playsInline preload="auto"
+      onCanPlay={play}
+      onLoadedData={play}
+    >
       <source src={src} type="video/mp4" />
     </video>
   )
