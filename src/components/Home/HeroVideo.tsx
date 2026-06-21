@@ -1,11 +1,14 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiChevronDown } from 'react-icons/fi'
 
 function AutoPlayVideo({ className, src }: { className: string; src: string }) {
   const ref = useRef<HTMLVideoElement>(null)
   useEffect(() => {
-    ref.current?.play().catch(() => {})
+    const v = ref.current
+    if (!v) return
+    v.load()
+    v.play().catch(() => {})
   }, [])
   return (
     <video ref={ref} className={className} autoPlay loop muted playsInline preload="auto">
@@ -24,18 +27,19 @@ const ORBS = [
 
 // ── Main component ─────────────────────────────────────────────
 export default function HeroVideo() {
+  const [isMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768)
+  const videoSrc = isMobile
+    ? `${import.meta.env.BASE_URL}video/hero-mobile.mp4`
+    : `${import.meta.env.BASE_URL}video/hero.mp4`
+
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Base gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#1a0010] via-[#0B0B0C] to-[#00101a]" />
 
       <AutoPlayVideo
-        className="absolute inset-0 w-full h-full object-cover opacity-40 md:hidden"
-        src={`${import.meta.env.BASE_URL}video/hero-mobile.mp4`}
-      />
-      <AutoPlayVideo
-        className="absolute inset-0 w-full h-full object-cover opacity-40 hidden md:block"
-        src={`${import.meta.env.BASE_URL}video/hero.mp4`}
+        className="absolute inset-0 w-full h-full object-cover opacity-40"
+        src={videoSrc}
       />
 
       {/* Subtle grid pattern */}

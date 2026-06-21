@@ -154,7 +154,7 @@ export default function HorizontalSlider() {
           </div>
 
           {/* ── CONTENT ─────────────────────────── */}
-          <div className="flex-1 flex flex-col justify-center pl-5 pr-5 md:pl-10 md:pr-10 py-4 md:py-8 pb-24 md:pb-8 overflow-y-auto md:overflow-visible">
+          <div className="flex-1 flex flex-col justify-center pl-5 pr-5 md:pl-10 md:pr-10 py-4 md:py-8 pb-36 md:pb-8 overflow-y-auto md:overflow-visible">
             {/* Mobile header */}
             <div className="md:hidden mb-4">
               <p className="font-body text-[10px] tracking-[0.45em] text-[#C0FF33] uppercase">
